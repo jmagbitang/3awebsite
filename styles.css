@@ -302,7 +302,7 @@ ul.topnav li.icon {display: none;}
         transition: margin 1s ease;
 }
 #wyatt:hover {
-margin-top: 200px;
+margin-top: 10px;
 }
 
 #georgebot {
