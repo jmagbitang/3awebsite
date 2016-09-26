@@ -1,0 +1,133 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Joanne Magbitang</title>
+  <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="bootstrap-social.css"> -->
+  <!-- JS -->
+    <script src="jquery-1.12.4.min.js"></script>
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script> -->
+<script>
+
+</script>
+
+  <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Fontawesome  -->
+  <script src="https://use.fontawesome.com/c8f825875d.js"></script>
+
+  <!-- Fonts -->
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+  <!-- Emoji -->
+  <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
+</head>
+
+<body>
+  <!-- Borders -->
+  <div id="border-t"></div>
+  <div id="border-b"></div>
+  <div id="border-l"></div>
+  <div id="border-r"></div>
+  <!-- Top-nav -->
+  <div id="navigation">
+    <ul class="topnav" id="myTopnav">
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <!-- <li><a href="#contact">Contact</a></li> -->
+      <li class="icon">
+        <a href="javascript:void(0);" style="font-size:30px; padding: 10 30" onclick="myFunction()">☰</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+
+<!-- Sections -->
+<div class="sections">
+  <!-- Home section  -->
+  <!-- <div class="rectangle"></div> -->
+<!-- <div class="big-letter">jm</div> -->
+  <div id="home">
+    <div id="title">joanne magbitang</div>
+    <div id="title-bar"></div>
+    <br>
+    <div class="subtitle">
+      <p>Hi! I'm a designer studying at the University of Waterloo.</p>
+      <br>
+      <p>I've designed solutions for many things that keep our world moving and connected — from healthcare, to travelling, to big data anaylitics applications, to finding the best foodie dates. 🚀</p>
+      <br>
+      <p>Got a complex problem to solve? Or one you can at least make witty remarks about at family dinners? #hmu</p>
+    </div>
+  </div>
+
+  <!-- Portfolio section -->
+  <div id="portfolio">
+    <div class="nav-title">Portfolio</div>
+    <div class="nav-title-bar"></div>
+    <div class="container">
+      <a href="wyatt.html"><div class="poster">
+        <div id="wyatt">
+        </div>
+        <div class="poster-title">Wyatt</div>
+        <div class="poster-subtitle">Travel health app</div>
+      </div></a>
+      <a href="georgebot.html"><div class="poster grow">
+        <div id="georgebot"></div>
+        <div class="poster-title">GeorgeBOT</div>
+        <div class="poster-subtitle">Diagnostic chatbot</div>
+      </div></a>
+      <a href="grumblr.html"><div class="poster">
+        <div id="grumblr"></div>
+        <div class="poster-title">Grumblr</div>
+        <div class="poster-subtitle">Recipe finder</div>
+      </div></a>
+      <a href="wearther.html"><div class="poster">
+        <div id="wearther"></div>
+        <div class="poster-title">Wearther</div>
+        <div class="poster-subtitle">Weather outfit app</div>
+      </div></a>
+  </div>
+
+  </div>
+
+  <!-- About section -->
+  <div id="contact">
+    <div class="nav-title">Say hello!</div>
+    <div class="nav-title-bar"></div>
+    <div class="subtitle">
+      <!-- <div><img srcß="images/profile_htn.jpg" class="img-circle"></div> -->
+      <p>I'm currently studying Systems Design Engineering and looking for an internship for Winter 2017.</p>
+      <br><p>Asides from designing, judging doors, and solving equations, you can see what else I'm up to in the links below. 🎉</p></div>
+
+      <div>
+        <ul class="linknav">
+          <li><a href="http://linkedin.com/in/joanne-magbitang" target="_blank"><span class="fa fa-2x fa-linkedin"></span></a></li>
+          <li><a href="mailto:joannemagbitang@gmail.com?Subject=Hello%20Joanne!"><span class="glyphicon glyphicon-envelope" style="font-size:1.5em; margin-top: 2px;"></span></a></li>
+          <li><a href="http://instagram.com/saintpotter" target="_blank"><span class="fa fa-2x fa-instagram"></span></a></li>
+        </ul>
+      </div>
+    <div id="footer"><span class="footer-text">coded and designed w <span id="footer-heart">❤</span> and chicken nuggets</span></div>
+  </div>
+</div>
+</body>
+
+</html>
