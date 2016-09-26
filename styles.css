@@ -269,18 +269,18 @@ ul.topnav li.icon {display: none;}
 .poster-title {
   font-family: 'hk_groteskbold', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 20px;
-  color: #fff;
+  color: #202020;
   position: absolute;
-  bottom: 0;
+  top: 0;
   padding: 50 30;
 }
 
 .poster-subtitle {
   font-family: 'hk_grotesklight', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 15px;
-  color: #fff;
+  color: #202020;
   position: absolute;
-  bottom: 0;
+  top: 0;
   padding: 20 30;
 }
 
