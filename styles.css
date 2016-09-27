@@ -489,7 +489,8 @@ ul.linknav li a:hover {
 }
 
 iframe {
-  margin-left: 30%;
+  margin-left: 20%;
+  margin-bottom: 30px;
 }
 
 /* Buttons */
@@ -506,6 +507,10 @@ iframe {
   text-decoration: none;
 }
 
-a:hover{
-    text-decoration: none;
+.portfolio-btn:hover{
+text-decoration: none;
+}
+
+ol {
+  margin-left: 10%;
 }
