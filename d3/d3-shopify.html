@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Joanne Magbitang | Shopicruit</title>
+  <link rel="stylesheet" type="text/css" href="d3-styles.css">
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,600,700" rel="stylesheet">
+
+  <body>
+    <div class="title">Shopicruit's Inventory</div>
+    <script>
+      var margin = {
+          top: 60,
+          right: 50,
+          bottom: 60,
+          left: 100
+        },
+        width = window.innerWidth - margin.left - margin.right - 380,
+        height = window.innerHeight - margin.top - margin.bottom;
+
+      // Scales
+      var x = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .1);
+
+      var y = d3.scale.linear()
+        .range([height, 0], .1);
+
+      var rScale = d3.scale.linear()
+        .range([0.4, 35]);
+
+      // Axes
+      var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
+
+      var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left");
+
+      // var cValue = function(d) { return d.title;};
+      //     color = d3.scale.category20();
+
+      var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+      var svg = d3.select("body").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.csv("data/shopicruit.csv", function(error, data) {
+        if (error) throw error;
+        console.log(data);
+
+        //Axis domains
+        x.domain(data.map(function(d) {
+          return d.product_type;
+        }));
+        y.domain(d3.extent(data, function(d) {
+          return d.maxPrice;
+        }));
+        rScale.domain(d3.extent(data, function(d) {
+          return d.maxPrice;
+        }));
+
+
+
+        svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis);
+
+          svg.append("text")
+              .attr("class", "xlabel")
+              .attr("text-anchor", "end")
+              .attr("x", width)
+              .attr("y", height + 36)
+              .text("Product Type");
+
+              svg.append("text")
+                  .attr("class", "ylabel")
+                  .attr("text-anchor", "end")
+                  .attr("y", -30)
+                  .attr("dy", ".75em")
+                  .attr("transform", "rotate(-90)")
+                  .text("Price");
+
+        function search(d, data) {
+          for (var i = 0; i < data.length; i++) {
+            if (data[i].product_type === "Clock" && data[i].product_type === d) {
+              return true;
+            }
+            if (data[i].product_type === "Watch" && data[i].product_type === d) {
+              return true;
+            }
+          }
+          return false;
+        }
+
+
+
+        d3.selectAll(".x.axis g.tick")
+          .attr("class", function(d) {
+            if (search(d, data)) {
+              return "tick major";
+            } else {
+              return "tick";
+            }
+          });
+
+        // d3.selectAll(".dot0 .dot1 .dot2 .dot3 .dot4 .dot5 .dot6 .dot7 .dot8 .dot9")
+        //   .attr("class", function(d) {
+        //     if (d.product_type === "Clock" || d.product_type === "Watch") {
+        //       return "major";
+        //     }
+        //   });
+
+        d3.selectAll(".x.axis g.tick.major text")
+          .attr("font-weight", "700")
+          .style("text-transform", "uppercase")
+          .style("font-size", "10px");
+
+        d3.selectAll(".major")
+          .append("line")
+          .attr("class", "grid")
+          .attr("stroke-width", "0.4")
+          .attr("y2", -height)
+          .attr("x2", function(d) {
+            return x(d.product_type);
+          })
+          .attr("stroke-dasharray", "1, 3");
+
+
+        svg.selectAll(".dot0")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot0")
+          .attr("r", function(d) {
+            return rScale(d.variants0price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants0price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants0option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", 0.4)
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants0option1 + "<br>" + "$" + d.variants0price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot1")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot1")
+          .attr("r", function(d) {
+            return rScale(d.variants1price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants1price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants1option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants1option1 + "<br>" + "$" + d.variants1price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot2")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot2")
+          .attr("r", function(d) {
+            return rScale(d.variants2price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants2price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants2option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants2option1 + "<br>" + "$" + d.variants2price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot3")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot3")
+          .attr("r", function(d) {
+            return rScale(d.variants3price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants3price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants3option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants3option1 + "<br>" + "$" + d.variants3price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot4")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot4")
+          .attr("r", function(d) {
+            return rScale(d.variants4price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants4price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants4option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants4option1 + "<br>" + "$" + d.variants4price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot5")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot5")
+          .attr("r", function(d) {
+            return rScale(d.variants5price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants5price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants5option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants5option1 + "<br>" + "$" + d.variants5price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot6")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot6")
+          .attr("r", function(d) {
+            return rScale(d.variants6price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants6price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants6option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants6option1 + "<br>" + "$" + d.variants6price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot7")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot7")
+          .attr("r", function(d) {
+            return rScale(d.variants7price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants7price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants7option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants7option1 + "<br>" + "$" + d.variants7price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot8")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot8")
+          .attr("r", function(d) {
+            return rScale(d.variants8price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants8price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants8option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants8option1 + "<br>" + "$" + d.variants8price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+
+        svg.selectAll(".dot9")
+          .data(data)
+          .enter()
+          .append("circle")
+          .attr("class", "dot9")
+          .attr("r", function(d) {
+            return rScale(d.variants9price);
+          })
+          .attr("cy", function(d) {
+            return y(d.variants9price)
+          })
+          .attr("cx", function(d) {
+            return x(d.product_type) + 17
+          })
+          .style("fill", function(d) {
+            return d.variants9option1
+          })
+          .style("stroke", "white")
+          .style("stroke-width", "1px")
+          .style("opacity", "0.4")
+          .on("mouseover", function(d) {
+            div.transition()
+              .duration(200)
+              .style("opacity", 1);
+            div.html("<strong>" + d.title + "</strong>" + "<br>" + "<em>" + d.product_type + "</em>" + " | " + d.variants9option1 + "<br>" + "$" + d.variants9price)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 40) + "px");
+            d3.select(this).style("opacity", 0.9);
+          })
+          // Hide tooltip, change back opacity
+          .on("mouseout", function(d) {
+            div.transition()
+              .duration(500)
+              .style("opacity", 0);
+            // event on hover change opacity of all selectAll(function() {return "." d.region})
+            d3.select(this).transition()
+              .duration(500).style("opacity", 0.4);
+          });
+      });
+    </script>
+  </body>
+
+</html>

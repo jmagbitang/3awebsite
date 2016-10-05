@@ -257,6 +257,7 @@ ul.topnav li.icon {
 .poster-title {
   font-family: 'hk_groteskbold', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 20px;
+  line-height: 80px;
   color: #202020;
   position: absolute;
   top: 0;
@@ -265,6 +266,7 @@ ul.topnav li.icon {
 .poster-subtitle {
   font-family: 'hk_grotesklight', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 15px;
+  line-height: 30px;
   color: #202020;
   position: absolute;
   top: 0;
@@ -387,9 +389,10 @@ float: left;
   font-family: 'Roboto Slab', sans-serif;
   font-weight: 300;
   font-style: italic;
-  line-height: 40px;
+  line-height: 25px;
   font-size: 15px;
   margin-left: 10%;
+  margin-right: 10%;
   color: #9c9c9c;
   padding-top: 10px;
   padding-bottom: 40px;
@@ -498,6 +501,7 @@ iframe {
   width: 190px;
   height: 40px;
   padding: 10px;
+  padding-top: 8px;
   border-radius: 25px;
   color: #fff;
   font-family: 'hk_groteskbold';

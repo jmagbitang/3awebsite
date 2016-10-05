@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Joanne Magbitang | Wearther</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles2.css">
+  <!-- <link rel="stylesheet" href="bootstrap-social.css"> -->
+  <!-- JS -->
+  <script src="jquery-1.12.4.min.js"></script>
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script> -->
+  <!-- Bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Fontawesome  -->
+  <script src="https://use.fontawesome.com/c8f825875d.js"></script>
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="fonts/stylesheet.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+  <!-- Emoji -->
+  <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <ul class="topnav nav navbar-nav" id="myTopnav">
+        <li><a class="active" href="index2.html#portfolio" style="padding-bottom: 25px; text-align: left; font-size: 15px; line-height: 16px; text-transform: lowercase; letter-spacing: normal;">Joanne<br>Magbitang</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <!-- ART GET ON THIS :) -->
+        <!-- <li><a href="/art.html" target="_blank">Art</a></li> -->
+        <li><a href="index2.html#contact">Get in touch</a></li>
+        <li class="icon">
+          <a href="javascript:void(0);" style="font-size:30px; padding: 10 30" onclick="myFunction()">☰</a>
+        </li>
+    </nav>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+    <div class="container-fluid">
+
+
+
+
+
+
+
+      <!-- Wyatt -->
+      <div class="row">
+        <div class="col-md-12" id="wearther-cover">
+          <div class="overlay">
+            <div class="img-text">
+              <span class="glyphicon glyphicon-plus" style="font-size:2.0em;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="portfolio">
+        <div class="col-md-12 port-text">
+          <div class="title-cover">Wearther</div>
+          <div id="title-bar"></div>
+          <div class="subtitle-cover" style="padding-bottom: 50px;">Shuffle outfit pieces depending on the weather. Beat the weather's indecisiveness with your own.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="portfolio-summary">
+            <div class="portfolio-sumtitle">Role</div>
+            <div class="portfolio-sumcap">Ideation, UX/UI designer</div>
+            <div class="portfolio-sumtitle">Tools</div>
+            <div class="portfolio-sumcap">Sketch, Photoshop, Marvel</div>
+            <div class="portfolio-sumtitle">Timeline</div>
+            <div class="portfolio-sumcap">May 2015, December 2015</div>
+            <div class="portfolio-sumtitle">Results</div>
+            <div class="portfolio-sumcap">A side project yet to be developed one day. 🌞</div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="portfolio-text">
+            <p><em>Is 10°C warm enough to wear a t-shirt? To be safe I will wear a cardigan and socks with my sandals.</em> Wearther started off as a dream solution for those who are mildly fashion-conscious but are never as satisfied with their outfits as much as they are with the weather.</div>
+        <div class="portfolio-img" style="background-image:url('http://jmagbits.github.io/images/Wearther_homescreens.png');"></div>
+        <a href="#wearther-final"><div class="portfolio-btn" style="border: 1px solid #d79637; background: #ffb344">See the final prototype</div></a>
+          <div class="portfolio-cap" style="color: #ffb344">What to wear—a seasonal problem.</div>
+          <div class="portfolio-text"><p>Being somewhat new to Canada, I’ve always had the trouble of deciding what to wear when I go outside, now that I have three more seasons to worry about—spring, fall, and everyone’s favourite, winter. Although I’ve been in the country for 5 years, I still seem to forget that the Spring doesn’t always mean I can wear short floral dresses; or, that a 20° drop from our 40° summers warrants me to wear a turtleneck to match an Andy Warhol book. </p>
+            <p>Thus, the concept of Wearther was born. My first thoughts on this app was to have it as a fashion-according-to-weather diary to help with recall, then over time it has grown to be imagined as a convenient way to crowdsource outfit essentials for certain places and weather conditions around the world. And finally, the idea has become Wearther randomizing outfit essentials given any weather and location. </p><p>When 'Feels like' is not enough to tell you what it really feels like, or you don't want to be uncomfortable or out of place from either underdressing or overdressing— Wearther was to be right at your fingers.</p>
+            </div>
+
+
+        <div class="portfolio-cap" id="grumblr-final" style="color: #ffb344">How it works.</div>
+        <div class="portfolio-text" ><p>I first imagined Wearther to be a Lookbook or curated Instagram but based on weather, mining data from the user base itself. However, this posed the problem of having another Instagram, or another Lookbook—and one isn't supposed to reinvent to wheel, or at least make a more complicated one.
+        </p><p>Instead I wanted to it to be smart—providing the user outfit suggestions, and then allowing them to save their choices to have the app provide better suggestions later. </p></div>
+        <div class="portfolio-img" style="background-image:url('http://jmagbits.github.io/images/Wearther_wireframe.JPG');"></div>
+
+        <div class="portfolio-text"><p>The new idea is that it will provide choices for different components of your outfit: Outerwear, Top, Bottom, Shoes, and Accessories. So depending on the location and time chosen by the user, a group of viable items are available in the pool of randomized suggestions that the user can see to either save or discard.</p><p>So the app must let the user:
+        </p><ol>
+        <li>Check the weather at a chosen location and time.
+        </li>
+        <li>See outfit combinations given the weather conditions.
+        </li>
+        <li>Save outfit combinations or;
+        </li>
+        <li>Randomize another combination.
+        </li>
+        <li>See saved outfit combos.
+        </li>
+        </ol></div>
+
+
+
+        <div class="portfolio-cap" style="color: #ffb344">User interface flows.</div>
+        <div class="portfolio-text">I decided that the important components in the home screen of this app were the location, temperature, weather conditions, the 5 outfit items, and the options to allow the user to either save or discard. Gradients are also provided depending on the weather conditions presented by the chosen location. For redundance, I put the option for the user to change their location right at the home screen, or they can access their other saved locations through the menu. </div>
+        <div class="portfolio-img" style="background-image:url('http://jmagbits.github.io/images/Wearther_board1.png'); height: 389px;"></div>
+        <div class="portfolio-text">To further fulfill task 1, the user is able to swipe left to see weather conditions for a later time as indicated by the arrows beside the time. The time will always default to the current time the user is in, to the nearest half hour—although outfit suggestions should not be based by hour, but by the average of temperatures and weather conditions predicted for that day. </div>
+        <div class="portfolio-img" style="background-image:url('http://jmagbits.github.io/images/Wearther_addloc.png'); width: 296px; margin-left: 300px;"></div>
+        <div class="portfolio-text">To make adding a location easier, it can grab landmarks or even automatically detect where the user is using the location services button. </div>
+        <div class="portfolio-img" style="background-image:url('http://jmagbits.github.io/images/Wearther_saved.png'); height: 608px;"></div>
+        <div class="portfolio-text"><p>The toughest challenge was to display the saved outfits by the user, which should include information such as temperature and weather conditions. I decided to sort the items by temperature (the temperature line can be scrolled up and down depending on how </p><p id="wearther-final">This makes more sense as a typical user would first want to know what they wore when it was warm or cold. The place was added in case the user saves from various locations. They can take note that a 10 degree outfit in Japan is not necessarily the same as a 10 degree outfit they would wear in Vancouver (possibly due to weather conditions, acclimatization, etc.) </p></div>
+
+        <div class="portfolio-cap" style="color: #ffb344">The Marvel prototype.</div>
+        <iframe src="https://marvelapp.com/45c2a1g?emb=1" width="301" height="600" allowTransparency="true" frameborder="0"></iframe>
+
+        <div class="portfolio-cap" style="color: #ffb344">Final thoughts.</div>
+        <div class="portfolio-text"><p>Definitely there's room to make a better flow for displaying the saved shuffles, or maybe adding redundant information such as location on top of every screen the user has set it to—or even a better app name overall. </p><p>But from a UI perspective, the most important thing this project taught me was not to take away from negative space too much. Besides the fact that in mobile many would fat-finger their phones, emphasizing on negative space is generally easier to look at, hence more pleasing.
+        </p><p>Also, mobile design is a very good practice in becoming sensible in the amount of flat (or non-flat) design elements you have. Flat design has been popular for a couple years now, but through this project I've learned that a mix of both flat and non-flat is needed especially with mobile, where everything is done with touch but of course most mobile devices lack the haptic feel.</p></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <a href="grumblr2.html"><div class="col-md-6 prev-btn" style="background: #41375b;">Grumblr</div></a>
+        <a href="wyatt2.html"><div class="col-md-6 next-btn" style="background: #81d4fa;">Wyatt</div></a>
+      </div>
+    </div>
+
+  </body>
+
+</html>
