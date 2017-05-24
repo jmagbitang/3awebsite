@@ -1,120 +1,198 @@
+<!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Joanne Magbitang | GeorgeBOT</title>
-  <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- <link rel="stylesheet" href="bootstrap-social.css"> -->
-  <!-- JS -->
-    <script src="jquery-1.12.4.min.js"></script>
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script> -->
-<script>
 
-</script>
+  <!-- Icon -->
+  <link href="web-logo.png" rel="icon">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- jQuery -->
+  <!-- <script src="jquery-1.12.4.min.js"></script> -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
 
   <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
   <!-- Fontawesome  -->
   <script src="https://use.fontawesome.com/c8f825875d.js"></script>
 
   <!-- Fonts -->
-    <link rel="stylesheet" href="fonts/stylesheet.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="fonts/stylesheet.css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Arvo:400,400i" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Arapey:400,400i" rel="stylesheet">
   <!-- Emoji -->
   <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
+
+  <!-- Google analytics -->
+
 </head>
 
 <body>
-  <!-- Borders -->
-  <div id="border-t"></div>
-  <div id="border-b"></div>
-  <div id="border-l"></div>
-  <div id="border-r"></div>
-  <!-- Top-nav -->
-  <div id="navigation">
-    <ul class="topnav" id="myTopnav">
-      <li><a href="index.html">← joanne magbitang</a></li>
-      <li><a href="wyatt.html">wyatt</a></li>
 
-      <li><a href="grumblr.html">grumblr</a></li>
-      <li><a href="wearther.html">wearther</a></li>
-      <li><a  class="poster-active" href="georgebot.html">georgebot</a></li>
+
+  <nav class="navbar">
+    <ul class="topnav fixed-top nav justify-content-end">
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="index.html#contact">Say hello</a></li>
+      <!-- <li class="icon">
+          <a href="javascript:void(0);" style="font-size:30px; padding: 10 30" onclick="myFunction()">☰</a>
+        </li> -->
     </ul>
+  </nav>
+
+  <div class="project-title">GeorgeBOT</div>
+  <div class="project-sub">Your friendly global-neighbourhood doctor, in a lightweight chatbot for Messenger and Slack.</div>
+  <div id="georgebot-site"></div>
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 center-block">
+
+        <div class="portfolio-summary" id="portfolio-summary">
+          <div class="portfolio-sumtitle">Role</div>
+          <div class="portfolio-sumcap">UX/UI designer</div>
+          <div class="portfolio-sumtitle">Tools</div>
+          <div class="portfolio-sumcap">Sketch, Framer, Firebase</div>
+          <div class="portfolio-sumtitle">Timeline</div>
+          <div class="portfolio-sumcap">One week, August 2016</div>
+          <div class="portfolio-sumtitle">Results</div>
+          <div class="portfolio-sumcap">Concept designs and copy writing for Slack and Messenger bots, and the creds to do an Intro to Framer tutorial for the BlueDot Design team. 🙌</div>
+        </div>
+      </div>
+      <div class="col-8 center-block">
+        <div class="project-body">
+          At BlueDot, we had another existing MVP called GeorgeBOT, which was a Slack chatbot translated from their consumer app on infectious diseases—George. Instead of showing disease risks per city, GeorgeBOT provided diagnoses of tropical infectious diseases.
+          The algorithm existed and was translated into a bot in order for the clinical team to check their database of symptom-disease relationships.</p>
+        </div>
+        <div class="project-quote">"Instead of showing disease risks per city, GeorgeBOT provided diagnoses of tropical infectious diseases. "</div>
+        <div class="project-body">
+          <p>GeorgeBOT's new iteration comes from the user testing results found from <a href="wyatt.html">Wyatt</a>. My role was to iterate on the new design of Wyatt, integrating GeorgeBOT's capabilties, while focusing to create a lightweight consumer
+            "app" on a chat botplatform. </p>
+          <p>From bot identity, to Slack and Messenger commands, to every word of the copy, I iterated and designed GeorgeBOT 2.0.</p>
+        </div>
+        <video controls loop autoplay>
+          <source src="images/georgebot/georgebot-movie.mov"> Your browser does not support the video tag.
+        </video>
+        <div class="img-caption">Preview of the final design of GeorgeBOT on Messenger, prototyped using Framer and Firebase.</div>
+        <br>
+
+
+
+      </div>
+    </div>
+
+
+    <div class="row grey-bg">
+      <div class="col-4">
+        <div class="project-header">
+          Conversational UI
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="project-body">
+          Amongst many apps that have to gather a user's personal information, mHealth apps fly solo in the club trying to get your number—mHealth apps have no wingmen, no mutuals—and yet needs the most information in your first meeting.</p>
+        </div>
+
+        <img class="project-img" src="images/georgebot/georgebot-master.png" alt="BD style guide">
+        <div class="img-caption">Preview of GeorgeBOT's identity and conversational guidelines.</div>
+        <div class="project-body">
+          <p>Based on the competitive analysis conducted for direct and indirect competitors for medical diagnostic apps and services in <a href="wyatt.html">Wyatt</a>, integration with the various workflows around getting treatment (such as finding readings
+            on conditions, getting a diagnosis, keeping your records, and connecting you to a doctor) in chat-form diagnoses or doctor Q&As were found to be the best ways to gather data from the user.</p>
+        </div>
+        <div class="project-quote">"Chat-form diagnoses or doctor Q&As were found to be the best ways to gather data from the user."</div>
+
+        <div class="project-body">
+          <p>It showed that the more seamless the interaction was with gathering the data from the user about personal matters such as their own health, showed better returns in terms of the users' reactions to how they perceived the quality of the answers
+            they received.</p>
+        </div>
+
+        <div class="project-quote">"2.5 billion people have at least one messaging app installed, and in a couple of years, this number is expected to skyrocket to 3.6 billion."</div>
+        <div class="project-body">
+          <p>A chatbot is better at staying relevant than a mobile app. Based on recent news and trends, the rise of chatbots is apparent. For example, the Economist reported that 2.5 billion people have at least one messaging app installed, and in a couple
+            of years, this number is expected to skyrocket to 3.6 billion. Text-based services are convenient, reliable, and can be abandoned and picked up with little to no consequence. Most importantly, people won't have to leave their most frequently
+            used apps.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+        <div class="project-header">
+          Chatbot design
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="project-body">
+          <p>
+            GeorgeBOT was then put back into the surface to be redeveloped. Georgebot started as a verification tool for BlueDot's symptom data, put into a chat bot in Slack that took yes or no inputs.
+          </p>
+        </div>
+        <img class="project-img" src="images/georgebot/georgebot-chat.png" alt="Georgebot">
+        <div class="img-caption">Sample conversation with GeorgeBOT 1.0 implemented in Slack.</div>
+
+        <div class="project-body">
+          <p>The new vision for GeorgeBOT is to become a healthcare chatbot, with a focus on travel-related infectious diseases. Added to the diagnostic feature are features on news, health services, and travel preparations.</p>
+        </div>
+
+        <div class="project-quote">"The new vision for GeorgeBOT is to become a healthcare chatbot."</div>
+        <div class="project-body">
+          <p>
+            Thus, the game plan for GeorgeBOT 2.0 was to first increase awareness, then streamline the to-do's. BlueDot's consumer products have always had the underlying goal of increasing awareness on infectious diseases. Travel-related diseases becoming a public
+            health concern, the solution we strive for is a proactive one.</p>
+        </div>
+        <img class="project-img" src="images/georgebot/georgebot-sketch.jpg" alt="BD sketch">
+        <div class="img-caption">Inital notes done from subject-matter expert interviews.</div>
+        <div class="project-body">
+          <p>Aligning with the stakeholder's needs, GeorgeBOT had to be a balance of a relevant and fun consumer product, while standing as a provider of niche medical expertise on infectious diseases. Research with subject matter experts were done to recreate
+            the feel of a doctor's visit into a bot, and see if this was an appropriate approach to a health chatbot. Moreover, various chatbots were tested and reviewed, such as Poncho the Weather cat (which I still use to this day).</p>
+        </div>
+        <div class="project-quote">"GeorgeBOT had to be a balance of a relevant, fun, consumer product, while standing as a provider of niche medical expertise on infectious diseases."</div>
+        <br>
+        <img class="project-img" src="images/georgebot/georgebot-news.png" alt="BD news">
+        <div class="img-caption">A concept design of how GeorgeBOT 2.0 will deliver news to a user in Slack.</div>
+        <div class="project-body">News was put in with inspiration from the CNN Messenger bot, except this GeorgeBOT would pull from a news API and filter out keywords depending on what the user wants to know about (disease or location-wise). This appears to be the interaction
+          with the lowest consequence and hence, would be easy to try and maybe even adopt. Starting with increasing awareness with a low consequence action, I moved on to the more streamlined processes such as travel preparation, finding health services
+          nearby, and symptom checking.</div>
+      </div>
+      <div class="row grey-bg">
+        <div class="col-4">
+          <div class="project-header">Results</div>
+        </div>
+        <div class="col-8">
+          <div class="project-body">
+            <p>When designing chat bots, copy writing is the design. Although different messaging applications give you different degrees of freedom on how to obtain or provide information to a user through a bot, the meat if the interaction is of course,
+              in the text. Text properties such as being too long, timing and delay, chunking, use of emojis, and providing sample replies—are just some of the may nuances I encountered when writing the logic for GeorgeBOT.</p>
+          </div>
+          <img class="project-img" src="images/georgebot/georgebot-messenger.png" alt="BD messenger">
+          <div class="img-caption">Sample conversation flow designed for Messenger.</div>
+          <div class="project-body-e">This was my first project on Framer, where I aimed to prototype the Sketch files of all the possible responses and predetermined replies, while accessing and posting data from and to Firebase for a more dynamic prototype. The data inside Firebase
+            included sample JSON from BlueDot's George API.</div>
+
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
-  </script>
-
-  <div class="portfolio-page">
-    <div class="portfolio-title" style="color: #3fb1fb">GeorgeBOT</div>
-    <div id="title-bar"></div>
-    <div class="portfolio-sub">Your friendly global-neighbourhood doctor. Health services navigator.
-Travel health prep buddy.
-“Awareness every day keeps the doctor away!” Except Dr. Georgebot, obviously. (Yes, Georgebot knows that so do apples. But you had be aware of that first, didn’t you?) <br><br>Georgebot is your personal global surveillance. <br><br>
-Lowkey very punny.
-A B Positive type.</div>
-    <div class="portfolio-summary">
-      <div class="portfolio-sumtitle">Role</div>
-      <div class="portfolio-sumcap">UX/UI designer, Interaction designer</div>
-      <div class="portfolio-sumtitle">Tools</div>
-      <div class="portfolio-sumcap">Sketch, Framer, Firebase</div>
-      <div class="portfolio-sumtitle">Timeline</div>
-      <div class="portfolio-sumcap">One week, August 2016</div>
-      <div class="portfolio-sumtitle">Results</div>
-      <div class="portfolio-sumcap">Concept designs and copy writing for Slack and Messenger bots. Creds to do an Intro to Framer tutorial for the BlueDot Design team. 🙌</div>
+  <div class="row grey-bg">
+    <div class="col-6">
+      <div class="prev-proj">Previous project / <a href="wyatt.html">Wyatt</a></div>
     </div>
-    <div class="portfolio-copy" style="margin-top: -410px;">
-    <div class="portfolio-text">
-      <p>At BlueDot, we had another existing MVP called GeorgeBOT, which was a Slack chat bot translated from their consumer app on infectious diseases—George. Instead of showing risks per city, GeorgeBOT provided diagnoses of tropical infectious diseases. The algorithm existed and was translated into a bot in order for the clinical team to check their database of symptom-disease relationships.</p> <p>GeorgeBOT's new iteration comes from the user testing results found from <a href="/wyatt.html">Wyatt</a>. My role was to iterate on the new design of Wyatt, integrating GeorgeBOT's capabilties, while focusing to create a lightweight consumer "app" on a chat bot platform.</p></div>
-<div class="portfolio-img" style="background-image:url('images/georgebot/georgebot-master.png');"></div>
-<a href="#georgebot-final"><div class="portfolio-btn" style="border: 1px solid #3598d9; background: #3fb1fb">See the final prototype</div></a>
-    <div class="portfolio-cap" style="color: #3fb1fb">mHealth flies solo in the club trying to get your number.</div>
-    <div class="portfolio-text"><p>Amongst many apps that have to gather a user's personal information, mHealth has no wingman, no mutuals—and yet needs the most information in your first meeting.</p><p>Based on the competitive analysis conducted for direct and indirect competitors for medical diagnostic apps and services in <a href="/wyatt.html">Wyatt</a>, integration with the various workflows around getting treatment (such as finding readings on conditions, getting a diagnosis, keeping your records, and connecting you to a doctor), and chat-form diagnoses or doctor Q&As—were found to be the best ways to gather data from the user.</p><p>It showed that the more seamless the interaction was with gathering the data from the user about personal matters such as their own health, showed better returns in terms of the users' reactions to how they perceived the quality of the answers they received.</p>
-
-<p>GeorgeBOT was then put back into the surface to be redeveloped. The new vision for GeorgeBOT is to become a healthcare chatbot, with a focus on travel-related infectious diseases. Added to the diagnostic feature are features on news, health services, and travel preparations.</p>
-
-  <p>Ultimately, BlueDot wants to help people achieve the intermediary goal of all things that surpass the 5 whys—such as living a fulfilling life—which is being free of infectious disease, and living a healthy life. </p>
-</div>
-
-
-<div class="portfolio-cap" style="color: #3fb1fb">A chatbot is better at staying relevant than a mobile app.</div>
-<div class="portfolio-text">Google Ventures' Jake Knapp, Zeratsky, and Kowitz wrote a book in early 2016 about their design sprint process which claims to let you solve and test ideas in five days. This was the perfect process to incorporate in the new design of a consumer mobile app, given the timeline.</div>
-<div class="portfolio-img" style="background-image:url('http://s3.amazonaws.com/blog.invisionapp.com/uploads/2016/03/gv-9.jpg');"></div>
-<div class="portfolio-text">Long-term goals, sprint questions, and targets were established on the first day. After conducting a concept map and How Might We exercise with BlueDot's founder, I ended up with this final concept map. In this map arose the obvious targets to work with—the traveller and their research of travel preparations and medical-related conditions.</div>
-<div class="portfolio-img" style="background-image:url('images/wyatt/conceptmap.png'); height: 700px; background-size: contain;"></div>
-<div class="portfolio-text">Next, various solutions were ideated and sketched, with competitors in mind for competitive benchmarking and remixing and improving upon existing ideas. These competitors were analyzed beforehand in a comprehensive competitive analysis done for 13 apps and services.</div>
-<div class="portfolio-img" style="background-image:url('images/wyatt/wyatt-sketch.png'); height: 700px; background-size: contain;"></div>
-<div class="portfolio-text" id="wyatt-final">The two 3-panel sketches above are the two solution alternative the to-be prototyped solution will be picked from. Using a computational decision matrix, the sketch on the left won—and would later be known as <em>Wyatt</em>.</div>
-
-
-<div class="portfolio-cap" style="color: #81d4fa">High fidelity prototype.</div>
-<div class="portfolio-text"><p>The high fidelity prototype was done in Sketch and Marvel. The final result included a feature of an environmental dashboard (much like a weather app) but showed summaries of concrete actions the user can do or be aware of based on the environmental conditions.</p></div>
-<div class="portfolio-img" style="background-image:url('images/wyatt/wyatt-marvel.png');"></div>
-<div class="portfolio-text"><p>Moreover, a travel preparation section was created in order to give the user a more personalized pre-trip experience, while staying aware of any travel health implications their trip may have on them. Lastly, a symptom checker was tested to see how users would react to the chat format of a diagnostic tool, with incorporated keywords for a fake chat feel.</p></div>
-<iframe src="https://marvelapp.com/1f7298g?emb=1" width="301" height="600" allowTransparency="true" frameborder="0"></iframe>
-
-<div class="portfolio-cap" style="color: #81d4fa">User research and testing.</div>
-<div class="portfolio-text"><p>As a rule of thumb (or of Nielsen), 5 users are would optimally find 85% of all usability issues. Within BlueDot, 7 people were recruited through an interview screener. These participants were asked to answer 15 minutes worth of contextual ad behavioural questions to validate or invaliate the persona hypotheses, and to gain insights from potential users' behaviours and attitudes towards health and travel. </p></div>
-<div class="portfolio-img" style="background-image:url('images/wyatt/wyatt-test.png');"></div>
-  <div class="portfolio-text">
-  The prototype test was done by asking the user to do two tasks: to get a travel checklist, and to get a potential diagnosis from Wyatt. The results of this study will be held confidential. However, be it known that it led to the iteration of George in a different platform—a chat bot, GeorgeBOT.</div><br><br>
-
-
+    <div class="col-6">
+      <div class="next-proj">Next project / <a href="wealthsimple.html">Wealthsimple</a></div>
+    </div>
+  </div>
   </div>
   </div>
 
